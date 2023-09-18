@@ -1,9 +1,13 @@
-import React from 'react'
+import { Stack } from "@mui/material";
+import React from "react";
+import PostCard from "./PostCard";
 
-const Posts = () => {
+const Posts = ({data,isLoading}) => {
   return (
-    <div>Posts</div>
-  )
-}
+    <Stack spacing={2}>
+      {data[0] && data.map((info) => <PostCard PostData={info} />)}
+    </Stack>
+  );
+};
 
-export default Posts
+export default Posts;
