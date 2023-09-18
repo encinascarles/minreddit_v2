@@ -19,6 +19,7 @@ const SubReddit = () => {
             <SubRedditTitle />
             <Posts />
         </Box>
+        <Box width="300px"></Box>
     </Box>
   )
 }
