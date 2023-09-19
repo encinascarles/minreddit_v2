@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Box,
   Button,
   ButtonGroup,
   Card,
@@ -15,7 +16,9 @@ import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import { useTheme } from "@mui/material/styles";
 
+
 const PostCard = ({PostData}) => {
+  const theme = useTheme();
 	function CardMediaProc() {
     if (PostData.media_type === "image") {
       return (
@@ -37,28 +40,29 @@ const PostCard = ({PostData}) => {
           title={PostData && PostData.title}
           subheader={PostData && PostData.author}
         />
-        {PostData && PostData.thumbnail && <CardMediaProc />}
-        <CardActions sx={{ display: "flex", justifyContent: "center" }}>
+        <Box padding={2}>
+          {PostData && PostData.thumbnail && <CardMediaProc />}
+        </Box>
+        <CardActions sx={{ display: "flex", justifyContent: "center", gap:2}}>
           <ButtonGroup
             variant="contained"
             sx={{
               borderRadius: "20px",
               height: "40px",
               alignItems: "center",
-              mr: "20px",
+              backgroundColor: "primary.main",
             }}
           >
-            <IconButton>
-              <ArrowUpwardOutlinedIcon />
+            <IconButton sx={{color:theme.palette.getContrastText(theme.palette.primary.main)}}>
+              <ArrowUpwardOutlinedIcon  />
             </IconButton>
-            <Typography>{PostData && PostData.ups}</Typography>
-            <IconButton>
+            <Typography color={theme.palette.getContrastText(theme.palette.primary.main)}>{PostData && PostData.ups}</Typography>
+            <IconButton sx={{color:theme.palette.getContrastText(theme.palette.primary.main)}}>
               <ArrowDownwardOutlinedIcon />
             </IconButton>
           </ButtonGroup>
           <Button
             variant="contained"
-            color="secondary"
             endIcon={<ChatOutlinedIcon />}
             sx={{
               borderRadius: "20px",
