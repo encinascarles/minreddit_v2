@@ -34,7 +34,7 @@ const PostCard = ({PostData}) => {
   }
 
   return (
-		<Card raised>
+		<Card raised sx={{borderRadius:4}}>
         <CardHeader
           avatar={PostData ? <Avatar>{PostData.author[0]}</Avatar> : null}
           title={PostData && PostData.title}
