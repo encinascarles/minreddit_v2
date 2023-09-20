@@ -24,6 +24,7 @@ async function getRedditData(subreddit) {
           ups,
           downs,
           thumbnail,
+          subreddit
         } = child.data;
         let media = "null";
         if (post_hint === "image") {
@@ -43,6 +44,7 @@ async function getRedditData(subreddit) {
           downs,
           thumbnail,
           media,
+          subreddit
         };
       })
     );

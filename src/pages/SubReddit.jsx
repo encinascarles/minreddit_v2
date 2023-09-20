@@ -5,10 +5,10 @@ import Posts from '../components/Posts';
 import { useParams } from 'react-router-dom';
 import getRedditData from '../utils/redditAPI';
 
-function SubRedditTitle() {
+function SubRedditTitle({title}) {
   return (
     <Box>
-        <h1>SubReddit Title</h1>
+        <h1>SubReddit {title}</h1>
     </Box>
   );
 }
@@ -30,7 +30,7 @@ const SubReddit = () => {
     <Box display="flex" justifyContent="center" gap={4}>
         <SideNavigation />
         <Box display="flex" flexDirection="column">
-            <SubRedditTitle />
+            <SubRedditTitle title={data ? id : data[0].subreddit}/>
             <Posts data={data} isLoading={isLoading}/>
         </Box>
         <Box width="300px"></Box>
