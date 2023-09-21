@@ -6,6 +6,7 @@ import TopBar from "./components/TopBar";
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { deepOrange } from "@mui/material/colors";
+import Home from "./pages/Home";
 
 function App() {
   const theme= createTheme({
@@ -26,6 +27,7 @@ function App() {
         <Box>
           <Routes>
             <Route path="/:id" element={<SubReddit />} />
+            <Route index element={<Home />} />
           </Routes>
         </Box>
       </ThemeProvider>
