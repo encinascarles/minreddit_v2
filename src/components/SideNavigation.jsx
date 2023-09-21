@@ -2,6 +2,7 @@ import {
   Box,
   Collapse,
   Container,
+  Divider,
   List,
   ListItemButton,
   ListItemIcon,
@@ -13,6 +14,7 @@ import ShowChartOutlinedIcon from "@mui/icons-material/ShowChartOutlined";
 import CurrencyBitcoinOutlinedIcon from "@mui/icons-material/CurrencyBitcoinOutlined";
 import TvOutlinedIcon from "@mui/icons-material/TvOutlined";
 import StarsOutlinedIcon from "@mui/icons-material/StarsOutlined";
+import HomeIcon from '@mui/icons-material/Home';
 
 import React from "react";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
@@ -92,10 +94,17 @@ const SideNavigation = () => {
   };
 
   return (
-    <Box width="300px" >
+    <Box width="300px" marginTop="50px" >
 			<Box position="fixed" width="300px">
       <Container>
         <List>
+          <ListItemButton>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItemButton>
+          <Divider sx={{marginBottom:"12px", marginTop:"12px"}}/>
           {Object.keys(temas).map((text) => (
             <>
               <ListItemButton onClick={() => handleClick(text)}>

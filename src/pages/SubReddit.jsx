@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Divider, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import SideNavigation from '../components/SideNavigation'
 import Posts from '../components/Posts';
@@ -29,6 +29,7 @@ const SubReddit = () => {
   return (
     <Box display="flex" justifyContent="center" gap={4}>
         <SideNavigation />
+        <Divider orientation="vertical" flexItem sx={{marginTop:"42px"}} />
         <Box display="flex" flexDirection="column" alignItems="center" sx={{width:"40vw", minWidth:700}}>
             <SubRedditTitle title={data ? id : data[0].subreddit} />
             <Posts data={data} isLoading={isLoading}/>
