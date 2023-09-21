@@ -23,18 +23,18 @@ const PostCard = ({PostData}) => {
     if (PostData.media_type === "image") {
       return (
         <CardMedia
-          sx={{ maxHeight: "400px", objectFit: "contain" }}
+          sx={{aspectRatio:5/3, objectFit: "contain"}}
           component="img"
           image={PostData && PostData.media}
         />
       );
     } else if (PostData.media_type === "hosted:video") {
-      return <CardMedia sx={{ maxHeight: "400px", objectFit: "contain" }} component="video" src={PostData && PostData.media} controls />;
+      return <CardMedia ssx={{aspectRatio:5/3, objectFit: "contain"}} component="video" src={PostData && PostData.media} controls />;
     }
   }
 
   return (
-		<Card raised sx={{borderRadius:4}}>
+		<Card raised sx={{borderRadius:4, objectFit: "contain",}}>
         <CardHeader
           avatar={PostData ? <Avatar>{PostData.author[0]}</Avatar> : null}
           title={PostData && PostData.title}
