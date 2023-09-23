@@ -23,7 +23,7 @@ function App() {
           <TopBar />
           <Box>
             <Routes>
-              <Route path="/:id" element={<SubReddit />} />
+              <Route path="/:sub/:id" element={<SubReddit />} />
               <Route index element={<Home />} />
             </Routes>
           </Box>

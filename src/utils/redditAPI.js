@@ -4,8 +4,8 @@ let headers = new Headers({
   "User-Agent": "MY-UA-STRING",
 });
 
-async function getRedditData(subreddit) {
-  return fetch(`https://www.reddit.com/r/${subreddit}.json`)
+async function getRedditData(subreddit,sub) {
+  return fetch(`https://www.reddit.com/${sub}/${subreddit}.json`)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);

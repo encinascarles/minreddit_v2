@@ -16,12 +16,12 @@ function SubRedditTitle({ title }) {
 }
 
 const SubReddit = () => {
-  const { id } = useParams();
+  const { id, sub } = useParams();
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getRedditData(id).then((res) => {
+    getRedditData(id,sub).then((res) => {
       setData(res);
       setIsLoading(false);
     });
