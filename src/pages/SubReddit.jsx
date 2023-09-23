@@ -25,7 +25,7 @@ const SubReddit = () => {
       setData(res);
       setIsLoading(false);
     });
-  }, []);
+  }, [id,sub]);
 
   return (
     <Box
