@@ -99,7 +99,7 @@ const SideNavigation = () => {
       <Container>
         <List>
           <ListItemButton>
-            <ListItemIcon>
+            <ListItemIcon sx={{color: 'actions.active' }}>
               <HomeIcon />
             </ListItemIcon>
             <ListItemText primary="Home" />

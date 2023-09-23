@@ -10,7 +10,6 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
 import ArrowUpwardOutlinedIcon from "@mui/icons-material/ArrowUpwardOutlined";
 import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
@@ -34,7 +33,7 @@ const PostCard = ({PostData}) => {
   }
 
   return (
-		<Card raised sx={{borderRadius:4, objectFit: "contain",}}>
+		<Card raised sx={{borderRadius:4, objectFit: "contain", backgroundImage:"none"}}>
         <CardHeader
           avatar={PostData ? <Avatar>{PostData.author[0]}</Avatar> : null}
           title={PostData && PostData.title}

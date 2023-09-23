@@ -5,32 +5,29 @@ import { Box } from "@mui/material";
 import TopBar from "./components/TopBar";
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { deepOrange } from "@mui/material/colors";
 import Home from "./pages/Home";
+import {useSelector} from 'react-redux'
+import { selectTheme } from "./theme/themeSlice";
+
+
 
 function App() {
-  const theme= createTheme({
-    palette:{
-      mode: 'light',
-      primary: {
-        main: deepOrange[500],
-        dark: deepOrange[600],
-        light: deepOrange[400],
-      },
-    }
-  })
+  const theme = createTheme(useSelector(selectTheme));
+  
+
+
   return (
     <Box>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <TopBar />
-        <Box>
-          <Routes>
-            <Route path="/:id" element={<SubReddit />} />
-            <Route index element={<Home />} />
-          </Routes>
-        </Box>
-      </ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <TopBar />
+          <Box>
+            <Routes>
+              <Route path="/:id" element={<SubReddit />} />
+              <Route index element={<Home />} />
+            </Routes>
+          </Box>
+        </ThemeProvider>
     </Box>
   );
 }

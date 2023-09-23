@@ -4,7 +4,7 @@ import React from "react";
 
 const HomeCard = ({SubRedditInfo}) => {
   return (
-    <Card sx={{width:"235px"}}>
+    <Card sx={{width:"235px",backgroundImage:"none"}}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe" src={SubRedditInfo.icon}/>
