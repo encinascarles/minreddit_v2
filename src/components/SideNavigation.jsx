@@ -100,10 +100,10 @@ const SideNavigation = () => {
   const navigate = useNavigate();
 
   return (
-    <Box width="300px" marginTop="50px" >
+    <Box width="300px" marginTop="50px">
 			<Box position="fixed" width="300px">
       <Container>
-        <List>
+        <List sx={{height:"calc(100vh - 130px)" , overflow:"auto"}}>
           <ListItemButton>
             <ListItemIcon sx={{color: 'actions.active' }}>
               <HomeIcon />
