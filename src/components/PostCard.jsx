@@ -29,7 +29,7 @@ const PostCard = ({PostData}) => {
         />
       );
     } else if (PostData.media_type === "hosted:video") {
-      return <CardMedia ssx={{aspectRatio:5/3, objectFit: "contain"}} component="video" src={PostData && PostData.media} controls />;
+      return <CardMedia ssx={{aspectRatio:4/3, objectFit: "contain"}} component="video" src={PostData && PostData.media} controls />;
     }
   }
 
