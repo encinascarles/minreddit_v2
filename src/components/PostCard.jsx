@@ -23,7 +23,7 @@ const PostCard = ({PostData}) => {
     if (PostData.media_type === "image") {
       return (
         <CardMedia
-          sx={{aspectRatio:5/3, objectFit: "contain"}}
+          sx={{aspectRatio:4/3, objectFit: "contain"}}
           component="img"
           image={PostData && PostData.media}
         />
@@ -40,7 +40,7 @@ const PostCard = ({PostData}) => {
           title={PostData && PostData.title}
           subheader={PostData && PostData.author}
         />
-        <Box padding={2}>
+        <Box paddingRight={2} paddingLeft={2}>
           {PostData && PostData.thumbnail && <CardMediaProc />}
         </Box>
         <CardActions sx={{ display: "flex", justifyContent: "center", gap:2}}>
