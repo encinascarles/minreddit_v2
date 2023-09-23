@@ -18,66 +18,71 @@ import HomeIcon from '@mui/icons-material/Home';
 
 import React from "react";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const temas = {
-  Videojuegos: {
+  Videogames: {
     icon: <VideogameAssetOutlinedIcon />,
     subtemas: [
-      "Valheim",
-      "Genshin Impact",
-      "Minecraft",
-      "Pokimane",
-      "Halo Infinite",
+      {name:"Valheim", link:"/r/Valheim"},
+      {name:"Genshin Impact",link:"/r/GenshinImpact"},
+      {name:"Minecraft", link:"/r/Minecraft"},
+      {name:"Pokimane", link:"/r/Pokimane"},
+      {name:"Halo Infinite",link:"/r/HaloInfinite"}
     ],
   },
-  Deportes: {
+  Sports: {
     icon: <SportsBaseballOutlinedIcon />,
     subtemas: [
-      "Valheim",
-      "Genshin Impact",
-      "Minecraft",
-      "Pokimane",
-      "Halo Infinite",
+      {name:"NFL", link:"/r/nfl"},
+      {name:"NBA",link:"/r/nba"},
+      {name:"Megan Anderson", link:"/r/MeaganAnderson"},
+      {name:"Atlanta Hawks", link:"/r/AtlantaHawks"},
+      {name:"Los Angeles Lakers",link:"/r/Lakers"},
+      {name:"Boston Celtics",link:"/r/BostonCeltics"},
+      {name:"Arsenal F.C.", link:"/r/arsenal"},
+      {name:"philadelphia 76ers", link:"/r/sixers"},
+      {name:"Premier League",link:"/r/PremierLeague"},
+      {name:"UFC",link:"/r/ufc"}
     ],
   },
-  Negocios: {
+  Business: {
     icon: <ShowChartOutlinedIcon />,
     subtemas: [
-      "Valheim",
-      "Genshin Impact",
-      "Minecraft",
-      "Pokimane",
-      "Halo Infinite",
+      {name:"GameStop", link:"/r/GameStop"},
+      {name:"Moderna",link:"/r/Moderna"},
+      {name:"Pfizer", link:"/r/Pfizer"},
+      {name:"Johnson & Johnson", link:"/r/JohnsonAndJohnson"},
+      {name:"AstraZeneca",link:"/r/AstraZeneca"},
+      {name:"Walgreens",link:"/r/Walgreens"},
+      {name:"Best Buy", link:"/r/BestBuy"},
+      {name:"Novavax", link:"/r/Novavax"},
+      {name:"SpaceX",link:"/r/SpaceX"},
+      {name:"Tesla",link:"/r/Tesla"}
     ],
   },
   Crypto: {
     icon: <CurrencyBitcoinOutlinedIcon />,
     subtemas: [
-      "Valheim",
-      "Genshin Impact",
-      "Minecraft",
-      "Pokimane",
-      "Halo Infinite",
+      {name:"Cardano", link:"/r/Cardano"},
+      {name:"Dogecoin",link:"/r/Dogecoin"},
+      {name:"Algorand", link:"/r/Algorand"},
+      {name:"Bitcoin", link:"/r/Bitcoin"},
+      {name:"Litecoin",link:"/r/Litecoin"},
+      {name:"Basic Attention Token",link:"/r/BATProject"},
+      {name:"Bitcoin cash", link:"/r/Bitcoincash"},
     ],
   },
   Television: {
     icon: <TvOutlinedIcon />,
     subtemas: [
-      "Valheim",
-      "Genshin Impact",
-      "Minecraft",
-      "Pokimane",
-      "Halo Infinite",
+
     ],
   },
   Famosos: {
     icon: <StarsOutlinedIcon />,
     subtemas: [
-      "Valheim",
-      "Genshin Impact",
-      "Minecraft",
-      "Pokimane",
-      "Halo Infinite",
+
     ],
   },
 };
@@ -92,6 +97,7 @@ const SideNavigation = () => {
       setOpen(tema);
     }
   };
+  const navigate = useNavigate();
 
   return (
     <Box width="300px" marginTop="50px" >
@@ -115,8 +121,8 @@ const SideNavigation = () => {
               <Collapse in={open === text} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                   {temas[text].subtemas.map((text) => (
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemText primary={text} />
+                    <ListItemButton sx={{ pl: 4 }} onClick={()=> navigate(text.link)} >
+                      <ListItemText primary={text.name} />
                     </ListItemButton>
                   ))}
                 </List>
