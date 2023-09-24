@@ -13,9 +13,6 @@ import { selectTheme } from "./theme/themeSlice";
 
 function App() {
   const theme = createTheme(useSelector(selectTheme));
-  
-
-
   return (
     <Box>
         <ThemeProvider theme={theme}>

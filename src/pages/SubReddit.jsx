@@ -21,6 +21,7 @@ const SubReddit = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     getRedditData(id,sub).then((res) => {
       setData(res);
       setIsLoading(false);
