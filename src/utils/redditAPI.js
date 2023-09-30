@@ -8,7 +8,7 @@ async function getRedditData(subreddit,sub) {
   return fetch(`https://www.reddit.com/${sub}/${subreddit}.json`)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       return data.data.children;
     })
     .then((children) =>
@@ -50,4 +50,33 @@ async function getRedditData(subreddit,sub) {
     );
 }
 
+async function getSearch (searchQuery) {
+  return fetch(`https://www.reddit.com/search.json?q=${searchQuery}&type=sr`)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data.data.children);
+    return data.data.children;
+  })
+  .then((children) =>{
+    if (children.length === 0) {
+      return [];
+    }
+    children.map((child) => {
+      const {
+        community_icon,
+        display_name,
+        display_name_prefixed,
+      } = child.data;
+      /*return {
+        community_icon,
+        display_name,
+        display_name_prefixed,
+      };*/
+      return display_name;
+    })
+
+  })
+}
+
 export default getRedditData;
+export {getSearch};
