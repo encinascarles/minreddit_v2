@@ -1,11 +1,18 @@
-import { AppBar, Autocomplete, IconButton, Toolbar, Typography, TextField } from "@mui/material";
+import {
+  AppBar,
+  Autocomplete,
+  IconButton,
+  Toolbar,
+  Typography,
+  TextField,
+} from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import { selectTheme, toggleMode } from "../theme/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
 import { getSearch } from "../utils/redditAPI";
 
 const TopBar = () => {
@@ -37,7 +44,7 @@ const TopBar = () => {
       setOptions([]);
     }
   }, [open]);
-
+  console.log(searchQuery);
   return (
     <AppBar position="sticky" sx={{ backgroundColor: "primary.main" }}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -46,7 +53,6 @@ const TopBar = () => {
         </Link>
 
         <Autocomplete
-          id="asynchronous-demo"
           sx={{ width: 300 }}
           open={open}
           onOpen={() => {
@@ -55,27 +61,27 @@ const TopBar = () => {
           onClose={() => {
             setOpen(false);
           }}
-          onInputChange={(e) => {
-            setSearchQuery(e.target.value)
-            setLoading(true);
-          }}
           filterOptions={(x) => x}
-          getOptionLabel={(option) => option.title}
+          getOptionLabel={(option) => (option.title ? option.title : "")}
           options={options}
-          loading={loading}
           freeSolo
           disableClearable
           value={item}
           onChange={(e, value) => {
             setSearchQuery("");
             setOptions([]);
-            navigate("/r/"+value.title)
+            if (value.title) {
+              navigate("/r/" + value.title);
+            } else {
+              navigate("/r/" + value);
+            }
           }}
           renderInput={(params) => (
             <TextField
               {...params}
               label="Search"
-              value=""
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
           )}
         />
