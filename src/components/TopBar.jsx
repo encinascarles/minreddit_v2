@@ -5,6 +5,7 @@ import {
   Toolbar,
   Typography,
   TextField,
+  Box,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
@@ -14,6 +15,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
 import { getSearch } from "../utils/redditAPI";
+import { useTheme } from "@emotion/react";
+import SearchIcon from "@mui/icons-material/Search";
 
 const TopBar = () => {
   const dispatch = useDispatch();
@@ -25,6 +28,8 @@ const TopBar = () => {
   const [item, setItem] = useState(null);
 
   const navigate = useNavigate();
+
+  const theme = useTheme();
 
   useEffect(() => {
     setLoading(true);
@@ -51,9 +56,19 @@ const TopBar = () => {
         <Link to="/">
           <Typography variant="h4"> minReddit </Typography>
         </Link>
-
+        <Box display="flex" gap="21px">
         <Autocomplete
-          sx={{ width: 300 }}
+          sx={{
+            width: 220,
+            height: 40,
+            backgroundColor: "secondary.contrastText",
+            border: "none",
+            borderRadius: "12px",
+            borderWidth: "0px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
           open={open}
           onOpen={() => {
             setOpen(true);
@@ -77,12 +92,31 @@ const TopBar = () => {
             }
           }}
           renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Search"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
+            <Box display="flex" width="100%">
+              <TextField
+                {...params}
+                placeholder="Search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                transparent                
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      border: "none",
+                    },
+                  },
+                }}
+              />
+              <IconButton
+                onClick={() => {
+                  setSearchQuery("");
+                  setOptions([]);
+                  navigate("/r/" + searchQuery);
+                }}
+              >
+                <SearchIcon />
+              </IconButton>
+            </Box>
           )}
         />
 
@@ -96,6 +130,7 @@ const TopBar = () => {
             <Brightness4Icon />
           )}
         </IconButton>
+        </Box>
       </Toolbar>
     </AppBar>
   );
