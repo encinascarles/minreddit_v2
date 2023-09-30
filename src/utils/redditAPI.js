@@ -57,11 +57,11 @@ async function getSearch (searchQuery) {
     console.log(data.data.children);
     return data.data.children;
   })
-  .then((children) =>{
+  .then((children) => {
     if (children.length === 0) {
       return [];
     }
-    children.map((child) => {
+    return children.map((child) => {
       const {
         community_icon,
         display_name,
@@ -72,7 +72,7 @@ async function getSearch (searchQuery) {
         display_name,
         display_name_prefixed,
       };*/
-      return display_name;
+      return {title:display_name};
     })
 
   })
