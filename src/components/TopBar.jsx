@@ -143,7 +143,6 @@ const TopBar = () => {
                     placeholder="Search"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    transparent
                     sx={{
                       "& .MuiOutlinedInput-root": {
                         "& fieldset": {
