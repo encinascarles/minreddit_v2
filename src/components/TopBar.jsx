@@ -36,13 +36,13 @@ const TopBar = () => {
   const theme = useTheme();
   const mode = useSelector(selectTheme).palette.mode;
   const pantalla = useMediaQuery(theme.breakpoints.up("sm"));
+  const pantallaMed = useMediaQuery(theme.breakpoints.up("md"));
 
   useEffect(() => {
     if (searchQuery.length < 3) {
       setOptions([]);
       return;
-    }
-    else{
+    } else {
       getSearch(searchQuery).then((res) => {
         setOptions([...res]);
       });
@@ -70,12 +70,16 @@ const TopBar = () => {
     <AppBar position="sticky" sx={{ backgroundColor: "primary.main" }}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         <Box display="flex" gap="16px">
-          <IconButton
-            sx={{ color: "primary.contrastText" }}
-            onClick={() => setShowDrawer(true)}
-          >
-            <MenuIcon />
-          </IconButton>
+          {searchBarMode !== "expanded" && !pantallaMed? (
+            <IconButton
+              sx={{ color: "primary.contrastText" }}
+              onClick={() => setShowDrawer(true)}
+            >
+              <MenuIcon />
+            </IconButton>
+          ) : (
+            ""
+          )}
           <Drawer
             open={showDrawer}
             onClose={() => setShowDrawer(false)}
