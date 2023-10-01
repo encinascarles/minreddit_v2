@@ -14,7 +14,6 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import { selectTheme, toggleMode } from "../theme/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import CircularProgress from "@mui/material/CircularProgress";
 import { getSearch } from "../utils/redditAPI";
 import { useTheme } from "@emotion/react";
 import SearchIcon from "@mui/icons-material/Search";
@@ -29,12 +28,8 @@ const TopBar = () => {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [item, setItem] = useState(null);
   const [searchBarMode, setSearchBarMode] = useState("normal");
   const [showDrawer, setShowDrawer] = useState(false);
-  
-  
 
   const navigate = useNavigate();
 
@@ -44,16 +39,13 @@ const TopBar = () => {
   const pantalla = useMediaQuery(theme.breakpoints.up("sm"));
 
   useEffect(() => {
-    setLoading(true);
     if (searchQuery.length < 3) {
       setOptions([]);
-      setLoading(false);
       return;
     }
     getSearch(searchQuery).then((res) => {
       setOptions([...res]);
     });
-    setLoading(false);
   }, [searchQuery]);
 
   useEffect(() => {
@@ -64,7 +56,7 @@ const TopBar = () => {
         setSearchBarMode("icon");
       }
     }
-  }, [pantalla]);
+  }, [pantalla, searchBarMode]);
 
   React.useEffect(() => {
     if (!open) {
@@ -89,7 +81,7 @@ const TopBar = () => {
             variant="temporary"
             anchor="left"
           >
-            <SideNavigation/>
+            <SideNavigation />
           </Drawer>
           {searchBarMode === "expanded" ? (
             ""
@@ -125,7 +117,6 @@ const TopBar = () => {
               options={options}
               freeSolo
               disableClearable
-              value={item}
               onChange={(e, value) => {
                 setSearchBarMode("icon");
                 setSearchQuery("");
