@@ -2,7 +2,7 @@ import { Box, Divider, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import SideNavigation from "../components/SideNavigation";
 import Posts from "../components/Posts";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import getRedditData from "../utils/redditAPI";
 
 function SubRedditTitle({ title }) {
@@ -20,13 +20,22 @@ const SubReddit = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     setIsLoading(true);
-    getRedditData(id,sub).then((res) => {
-      setData(res);
-      setIsLoading(false);
-    });
-  }, [id,sub]);
+    async function fetchData(id, sub) {
+      try {
+        const res = await getRedditData(id, sub);
+        setData(res);
+        setIsLoading(false);
+      } catch (error) {
+        navigate("/404");
+      }
+    }
+    
+    fetchData(id, sub);
+  }, [id,sub,navigate]);
 
   return (
     <Box

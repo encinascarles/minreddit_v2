@@ -35,7 +35,6 @@ const TopBar = () => {
 
   const theme = useTheme();
   const mode = useSelector(selectTheme).palette.mode;
-
   const pantalla = useMediaQuery(theme.breakpoints.up("sm"));
 
   useEffect(() => {
@@ -43,9 +42,11 @@ const TopBar = () => {
       setOptions([]);
       return;
     }
-    getSearch(searchQuery).then((res) => {
-      setOptions([...res]);
-    });
+    else{
+      getSearch(searchQuery).then((res) => {
+        setOptions([...res]);
+      });
+    }
   }, [searchQuery]);
 
   useEffect(() => {

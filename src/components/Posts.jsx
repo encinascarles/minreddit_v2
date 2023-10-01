@@ -6,7 +6,7 @@ import PostCardSkeleton from "./PostCardSkeleton";
 const Posts = ({data,isLoading}) => {
   return (
     <Stack spacing={2} sx={{width:"100%"}}>
-      {isLoading ? Array(10).fill().map(() => <PostCardSkeleton />) : data.map((info) => <PostCard PostData={info} />)}
+      {isLoading ? Array(10).fill().map((a,i) => <PostCardSkeleton key={i}/>) : data.map((info,i) => <PostCard PostData={info} key={i}/>)}
     </Stack>
   );
 };

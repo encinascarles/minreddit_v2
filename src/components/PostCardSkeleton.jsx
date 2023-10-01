@@ -1,25 +1,13 @@
 import React from "react";
 import {
-  Avatar,
-  Box,
-  Button,
-  ButtonGroup,
   Card,
-  CardActions,
   CardHeader,
-  CardMedia,
-  IconButton,
   Skeleton,
-  Typography,
 } from "@mui/material";
-import ArrowUpwardOutlinedIcon from "@mui/icons-material/ArrowUpwardOutlined";
-import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined";
-import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 
-
-const PostCard = () => {
+const PostCard = (key) => {
   return (
-		<Card raised sx={{borderRadius:4, objectFit: "contain", backgroundImage:"none"}}>
+		<Card raised sx={{borderRadius:4, objectFit: "contain", backgroundImage:"none"}} key={key}>
         <CardHeader
           avatar={<Skeleton animation="wave" variant="circular" width={40} height={40} />}
           title={<Skeleton
