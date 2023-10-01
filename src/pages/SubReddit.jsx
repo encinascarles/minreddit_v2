@@ -30,10 +30,10 @@ const SubReddit = () => {
 
   return (
     <Box
-      sx={{display:"grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: "20px", justifyContent: "center" }}
+      sx={{display:"grid", gridTemplateColumns:{xs:"repeat(1, 1fr)",md:"repeat(3, 1fr)"}, gridGap: "20px", justifyContent: "center" }}
       gap={4}
     >
-      <Box sx={{gridColumn:"1/2", display:"flex", flexDirection:"row", justifyContent:"right"}}>
+      <Box sx={{gridColumn:"1/2", display:{xs:"none", md:"flex"}, flexDirection:"row", justifyContent:"right"}}>
         <SideNavigation />
         <Divider orientation="vertical" flexItem sx={{ marginTop: "42px" }} />
       </Box>
@@ -41,12 +41,12 @@ const SubReddit = () => {
         display="flex"
         flexDirection="column"
         alignItems="center"
-        gridColumn="2/3"
+        gridColumn={{sm:"1",md:"2/3"}}
+        paddingX={{xs:"20px",md:"0px"}}
       >
         <SubRedditTitle title={data ? id : data[0].subreddit} />
         <Posts data={data} isLoading={isLoading} />
       </Box>
-      <Box width="300px"></Box>
     </Box>
   );
 };
