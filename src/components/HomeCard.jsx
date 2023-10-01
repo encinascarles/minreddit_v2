@@ -6,7 +6,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 const HomeCard = ({ SubRedditInfo }) => {
   return (
-    <Card sx={{ width: "235px", backgroundImage: "none" }}>
+    <Card sx={{ width:{sm:"235px", xs:"90%"} , backgroundImage: "none" }}>
       <CardActionArea component={RouterLink} to={SubRedditInfo.link}>
         <CardHeader
           avatar={

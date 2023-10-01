@@ -65,7 +65,7 @@ const TopBar = () => {
             border: "none",
             borderRadius: "12px",
             borderWidth: "0px",
-            display: "flex",
+            display: {xs:"none",md:"flex"},
             alignItems: "center",
             justifyContent: "space-between",
           }}
