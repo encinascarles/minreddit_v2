@@ -8,6 +8,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Home from "./pages/Home";
 import {useSelector} from 'react-redux'
 import { selectTheme } from "./theme/themeSlice";
+import Error from "./pages/Error";
 
 
 
@@ -20,6 +21,7 @@ function App() {
           <TopBar />
           <Box>
             <Routes>
+            <Route path="/404" element={<Error />} />
               <Route path="/:sub/:id" element={<SubReddit />} />
               <Route index element={<Home />} />
             </Routes>
