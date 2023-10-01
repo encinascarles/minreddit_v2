@@ -85,13 +85,13 @@ const Home = () => {
     <Box display="flex" flexDirection="column" alignItems="center" paddingTop="38px" gap="38px">
       <Typography sx={{typography:{md:"h2",xs:"h4"}}} >Popular SubReddits</Typography>
       <Grid container rowSpacing="46px" sx={{width:{xs:"100%",sm:"calc(235px*2 + 25px*2)", md:"calc(235px*3 + 25px*3)"}}}>
-        {popularSubreddits.map((SubRedditInfo) => (
-          <Grid item xs={6} sm={6} md={4} sx={{display:"flex", justifyContent:"center" }}>
+        {popularSubreddits.map((SubRedditInfo,i) => (
+          <Grid item xs={6} sm={6} md={4} sx={{display:"flex", justifyContent:"center" }} key={i}>
             <HomeCard SubRedditInfo={SubRedditInfo}/>
           </Grid>
+
         ))
       }
-        
       </Grid>
     </Box>
   );
