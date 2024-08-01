@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# minReddit v2
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to minReddit v2! This project is a frontend-only application built using React and Material-UI (MUI). It serves as a learning tool to familiarize myself with frontend development, specifically with React and MUI.
 
-## Available Scripts
+## Live Demo
 
-In the project directory, you can run:
+You can access the live demo of the project [here](https://minreddit-v2.vercel.app/).
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+minReddit v2 is a simple project created to mimic some functionalities of Reddit. Although it's not intended to be a fully functional or useful application, it provides a great playground to explore and understand the intricacies of React and Material-UI.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- **React**: Utilized to build a dynamic and responsive user interface.
+- **Material-UI (MUI)**: Employed for UI components to ensure a modern and consistent design.
+- **Create React App**: Bootstrapped the project with Create React App to set up a robust and scalable development environment.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+To get a local copy of the project up and running, follow these simple steps.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v14 or above)
+- npm or yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/yourusername/minreddit-v2.git
+    ```
+2. Navigate to the project directory:
+    ```sh
+    cd minreddit-v2
+    ```
+3. Install dependencies:
+    ```sh
+    npm install
+    ```
+    or
+    ```sh
+    yarn install
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Running the Application
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To start the development server, run:
+```sh
+npm start
+```
+or
+```sh
+yarn start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Learnings
 
-## Learn More
+This project was primarily built as a learning exercise. Here are some of the key areas I focused on:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **React**: Deepening my understanding of React components, state management, and hooks.
+- **Material-UI**: Learning how to use Material-UI components and styling system.
+- **Project Structure**: Organizing a React project for maintainability and scalability.
+- **Deployment**: Deploying a React application using Vercel.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributing
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Since this project is meant for learning purposes, contributions are not expected. However, if you have suggestions or improvements, feel free to open an issue or submit a pull request.
